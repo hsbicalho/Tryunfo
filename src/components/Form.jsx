@@ -11,10 +11,10 @@ export default class Form extends Component {
         <Input typeInput="number" inputDataId="attr1" />
         <Input typeInput="number" inputDataId="attr2" />
         <Input typeInput="number" inputDataId="attr3" />
-        <Input typeInput="text" inputDataId="name" />
-        <Input typeInput="select" inputDataId="name" />
+        <Input typeInput="text" inputDataId="image" />
+        <Input typeInput="select" inputDataId="rare" />
         <Input typeInput="checkbox" inputDataId="trunfo" />
-        <Button inputDataId="save" />
+        <Button inputDataId="save-button" />
       </form>
     );
   }

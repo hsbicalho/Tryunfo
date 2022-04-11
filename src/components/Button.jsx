@@ -5,7 +5,7 @@ export default class Button extends Component {
   render() {
     const { inputDataId } = this.props;
     return (
-      <button type="button" data-testid={ `${inputDataId}-input` }>Enviar</button>
+      <button type="button" data-testid={ inputDataId }>Enviar</button>
     );
   }
 }

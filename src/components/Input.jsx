@@ -10,8 +10,8 @@ export default class Input extends Component {
           {inputDataId}
           <select data-testid={ `${inputDataId}-input` }>
             <option>normal</option>
-            <option>rare</option>
-            <option>super-rare</option>
+            <option>raro</option>
+            <option>muito raro</option>
           </select>
         </label>
       );
