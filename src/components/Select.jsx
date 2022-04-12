@@ -1,31 +1,33 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class Input extends Component {
+export default class Select extends Component {
   render() {
     const {
-      typeInput,
       inputDataId,
-      cardValue,
+      cardRare,
       onInputChange,
       name,
     } = this.props;
     return (
       <label htmlFor={ `${inputDataId}-input` }>
         {inputDataId}
-        <input
-          type={ typeInput }
+        <select
           data-testid={ `${inputDataId}-input` }
-          value={ cardValue }
+          value={ cardRare }
           onChange={ onInputChange }
           name={ name }
-        />
+        >
+          <option>normal</option>
+          <option>raro</option>
+          <option>muito raro</option>
+        </select>
       </label>
     );
   }
 }
 
-Input.propTypes = {
+Select.propTypes = {
   typeInput: PropTypes.string,
   inputDataId: PropTypes.string,
   cardValue: PropTypes.string,
