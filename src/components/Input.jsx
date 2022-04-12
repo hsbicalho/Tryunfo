@@ -17,6 +17,7 @@ export default class Input extends Component {
           type={ typeInput }
           data-testid={ `${inputDataId}-input` }
           value={ cardValue }
+          checked={ cardValue }
           onChange={ onInputChange }
           name={ name }
         />
