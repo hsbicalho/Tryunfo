@@ -22,7 +22,7 @@ export default class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -78,13 +78,18 @@ export default class Form extends Component {
           onInputChange={ onInputChange }
           name="cardRare"
         />
-        <Input
-          typeInput="checkbox"
-          inputDataId="trunfo"
-          cardValue={ cardTrunfo }
-          onInputChange={ onInputChange }
-          name="cardTrunfo"
-        />
+
+        { hasTrunfo
+          ? <p>Você já tem um Super Trunfo em seu baralho</p>
+          : (
+            <Input
+              typeInput="checkbox"
+              inputDataId="trunfo"
+              cardValue={ cardTrunfo }
+              onInputChange={ onInputChange }
+              name="cardTrunfo"
+            />
+          )}
         <Button
           inputDataId="save-button"
           onSaveButtonClick={ onSaveButtonClick }
@@ -104,7 +109,7 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  /* hasTrunfo: PropTypes.bool, */
+  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,

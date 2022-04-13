@@ -6,6 +6,7 @@ export default class Button extends Component {
     const { inputDataId,
       buttonDisable,
       onSaveButtonClick,
+      /* hasTrunfo, */
     } = this.props;
     return (
       <button
@@ -22,6 +23,7 @@ export default class Button extends Component {
 
 Button.propTypes = {
   inputDataId: PropTypes.string,
+  /* hasTrunfo: PropTypes.bool, */
   buttonDisable: PropTypes.bool,
   onSaveButtonClick: PropTypes.func,
 }.isRequired;

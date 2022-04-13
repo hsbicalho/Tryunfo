@@ -18,7 +18,7 @@ class App extends React.Component {
       savedCards: [],
     };
     this.onInputChange = this.onInputChange.bind(this);
-    this.validadeForm = this.validadeForm.bind(this);
+    this.validateForm = this.validateForm.bind(this);
     this.saveOnClick = this.saveOnClick.bind(this);
   }
 
@@ -27,10 +27,10 @@ class App extends React.Component {
     const value = (target.type === 'checkbox') ? target.checked : target.value;
     this.setState({
       [name]: value,
-    }, this.validadeForm);
+    }, this.validateForm);
   };
 
-  validadeForm = () => {
+  validateForm = () => {
     const MAX_VALUE = 210;
     const MAX_VALUE_ATTR = 90;
     const REMOVE_ELEMENTS = 1;
@@ -87,7 +87,7 @@ class App extends React.Component {
       cardAttr2: '0',
       cardAttr3: '0',
       cardImage: '',
-      cardRare: '',
+      cardRare: 'normal',
       cardTrunfo: false,
       isSaveButtonDisabled: true,
     });
@@ -104,7 +104,10 @@ class App extends React.Component {
       cardRare,
       cardTrunfo,
       isSaveButtonDisabled,
+      savedCards,
     } = this.state;
+
+    const hasTrunfo = savedCards.some((card) => card.cardTrunfo);
 
     return (
       <div>
@@ -120,6 +123,7 @@ class App extends React.Component {
           isSaveButtonDisabled={ isSaveButtonDisabled }
           onInputChange={ this.onInputChange }
           onSaveButtonClick={ this.saveOnClick }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardName={ cardName }
@@ -132,6 +136,9 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
           isSaveButtonDisabled={ isSaveButtonDisabled }
         />
+        {savedCards.map((card) => (
+          <Card key={ card.cardName } { ...card } />
+        ))}
       </div>
     );
   }

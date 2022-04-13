@@ -1,8 +1,10 @@
-const validadeForm = () => {
+const validateForm = (stado) => {
   const MAX_VALUE = 210;
   const MAX_VALUE_ATTR = 90;
-  const stateForm = this.state;
-  const filledForm = Object.keys(stateForm).every((key) => stateForm[key].length !== 0);
+  const REMOVE_ELEMENTS = 1;
+  const stateForm = stado;
+  const filledForm = Object.keys(stateForm).slice(0, -REMOVE_ELEMENTS)
+    .every((key) => stateForm[key].length !== 0);
 
   const cardAttrSum = (Number(stateForm.cardAttr1)
   + Number(stateForm.cardAttr2)
@@ -26,4 +28,4 @@ const validadeForm = () => {
   }
 };
 
-export default validadeForm;
+export default validateForm;
